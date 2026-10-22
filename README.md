@@ -26,7 +26,7 @@ homelab-automation/
 │   └── inspect.yml
 ├── .gitignore
 └── README.md
-
+```
 ## Planned improvements
 
 - Automate package updates and installation
