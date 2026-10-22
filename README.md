@@ -1,4 +1,4 @@
-cat > README.md <<'EOF'
+
 # HomeLab Automation
 
 A learning project for automating and managing my home server using Ansible.
