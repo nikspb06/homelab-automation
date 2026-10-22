@@ -1,0 +1,17 @@
+# Real inventory may contain private IPs and connection details
+inventory/hosts.ini
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+vault-password.txt
+
+# Python
+__pycache__/
+*.pyc
+
+# Ansible
+*.retry

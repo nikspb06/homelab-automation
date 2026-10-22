@@ -1,0 +1,19 @@
+---
+- name: Inspect my homelab server
+  hosts: homelab
+  gather_facts: true
+
+  tasks:
+    - name: Show operating system
+      ansible.builtin.debug:
+        var: ansible_facts["distribution"]
+
+    - name: Show available memory
+      ansible.builtin.debug:
+        var: ansible_facts["memtotal_mb"]
+    
+    - name: Show CPU architecture
+      ansible.builtin.debug:
+        var: ansible_facts["architecture"]
+
+
