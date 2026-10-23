@@ -1,0 +1,25 @@
+---
+- name: Configure packages on my homelab
+  hosts: homelab
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Ensure curl is installed
+      ansible.builtin.apt:
+        name: curl
+        state: present
+        update_cache: true
+
+    - name: Ensure htop is installed
+      ansible.builtin.apt:
+        name: htop
+        state: present
+        update_cache: true
+    - name: Create directory for homelab services
+      ansible.builtin.file:
+        path: /opt/homelab
+        state: directory
+        owner: root
+        group: root
+        mode: 0755
