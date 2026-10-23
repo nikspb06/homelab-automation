@@ -1,4 +1,4 @@
-cat > README.md <<'EOF'
+
 # HomeLab Automation
 
 A learning project for automating and managing my home server using Ansible.
@@ -26,7 +26,7 @@ homelab-automation/
 │   └── inspect.yml
 ├── .gitignore
 └── README.md
-
+```
 ## Planned improvements
 
 - Automate package updates and installation
