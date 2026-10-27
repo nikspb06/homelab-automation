@@ -25,3 +25,12 @@
       community.docker.docker_compose_v2:
         project_src: /opt/homelab/web
         state: present
+    - name: Check Nginx HTTP response
+      ansible.builtin.uri:
+        url: http://127.0.0.1:8080
+        status_code: 200
+      register: nginx_response
+      delegate_to: rockpi
+    - name: Report Nginx status
+      ansible.builtin.debug:
+        msg: "Nginx is healthy: HTTP {{ nginx_response.status }}"
