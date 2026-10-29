@@ -4,33 +4,5 @@
   become: true
   gather_facts: false
 
-  tasks:
-    - name: Create web directory
-      ansible.builtin.file:
-        path: /opt/homelab/web
-        state: directory
-        owner: root
-        group: root
-        mode: '0755'
-
-    - name: Copy Compose configuration
-      ansible.builtin.copy:
-        src: ../services/web/compose.yml
-        dest: /opt/homelab/web/compose.yml
-        owner: root
-        group: root
-        mode: '0644'
-
-    - name: Start Nginx
-      community.docker.docker_compose_v2:
-        project_src: /opt/homelab/web
-        state: present
-    - name: Check Nginx HTTP response
-      ansible.builtin.uri:
-        url: http://127.0.0.1:8080
-        status_code: 200
-      register: nginx_response
-      delegate_to: rockpi
-    - name: Report Nginx status
-      ansible.builtin.debug:
-        msg: "Nginx is healthy: HTTP {{ nginx_response.status }}"
+  roles:
+    - web
